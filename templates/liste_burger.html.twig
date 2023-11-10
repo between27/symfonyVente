@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+ 
+{% block card %}
+{% for burger in burgers %}
+    <div>
+        <h1 class="text-3xl font-bold underline m-0">
+            {{burger}}
+        </h1>
+    </div>
+
+    {% endfor %}
+{% endblock %}
