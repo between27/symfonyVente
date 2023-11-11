@@ -10,11 +10,13 @@
     </title>
 </head>
 <body class="bg-gray-100">
-{% block home %} {% endblock %}
-    <div class="flex space-x-10 w-full">
-    {% block card %}
+<div class="container mx-auto px-2">
+    {% block header %}
     {% endblock %}
-    </div>
+
+{% block content %}
+{% endblock %}
+</div>
 
 
 </body>

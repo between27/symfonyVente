@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+{{ burger.name }}
+{% endblock %}
+
+{% block content %}
+    <div>
+        <a class="text-6xl" href={{ path('burgers') }}>👈</a>
+        <div class="rounded-full w-4 h-4 bg-gradient-to-r from-blue-500 to-green-400 hover:animate-spin
+"></div>
+    </div>
+<div>
+    <h1>{{ burger.name }}</h1>
+    <p>{{ burger.description }}</p>
+    <p class="text-4xl text-amber-600">{{ burger.price }}</p>
+</div>
+{% endblock %}

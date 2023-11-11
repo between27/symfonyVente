@@ -1,14 +1,26 @@
 {% extends 'base.html.twig' %}
- 
-{% block card %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+
+
+
+{% block content %}
+    <a href="{{ path('home') }}" class="text-xl animate-bounce hover:bg-black">🏠</a>
+    <div class="">
 {% for burger in burgers %}
     <div>
-        <h1 class="text-3xl font-bold underline m-0">
-            {{burger}}
-        </h1>
+        <a class="text-3xl font-bold underline m-0"
+            href="{{ path('burger',{'id':burger.id}) }}">
+            {{burger.name}}
+        </a>
     </div>
 
     {% endfor %}
+    </div>
 {% endblock %}
 
 {% block home %}
