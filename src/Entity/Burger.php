@@ -19,7 +19,17 @@ class Burger
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Image $image = null;
 
-    #[ORM\OneToOne]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Pain $pain = null;
+
+    #[ORM\ManyToOne(targetEntity: Oignon::class, inversedBy: 'burger')]    
+    private ?Oigon $oignon = null;
+    
+    #[ORM\ManyToOne(targetEntity: Sauce::class, inversedBy: 'burger')]
+    private ?Sauce $sauce = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Commentaire $commentaire = null;
 
     public function getId (): ?int
     {
@@ -48,4 +58,47 @@ class Burger
         return $this;
     }
 
+    public function getPain (): ?Pain
+    {
+        return $this->pain;
+    }
+
+    public function setPain (Pain $pain): self
+    {
+        $this->pain = $pain;
+        return $this;
+    }
+
+    public function getOignon (): ?Oignon
+    {
+        return $this->oignon;
+    }
+
+    public function setOignon (Oignon $oignon): self
+    {
+        $this->oignon = $oignon;
+        return $this;
+    }
+
+    public function getSauce (): ?Sauce
+    {
+        return $this->sauce;
+    }
+
+    public function setSauce (Sauce $sauce): self
+    {
+        $this->sauce = $sauce;
+        return $this;
+    }
+
+    public function getCommentaire (): ?Commentaire
+    {
+        return $this->commentaire;
+    }
+
+    public function setCommentaire (Commentaire $commentaire): self
+    {
+        $this->commentaire = $commentaire;
+        return $this;
+    }
 }
