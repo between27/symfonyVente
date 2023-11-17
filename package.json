@@ -18,6 +18,9 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+        "createdb" : "php bin/console doctrine:database:create",
+        "migrate": "php bin/console doctrine:migrations:diff && php bin/console doctrine:migrations:migrate",
+        "load": "php bin/console doctrine:fixtures:load",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",

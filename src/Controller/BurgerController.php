@@ -16,9 +16,6 @@ class BurgerController extends AbstractController {
         ['id' => 'burger_3','name'=>"mc bacon" , 'description' => 'Burger 3 description', 'price' => 7.99],
         ['id' => 'burger_4','name'=>"mc deluxe" , 'description' => 'Burger 4 description', 'price' => 8.99],
         ['id' => 'burger_5','name'=>"mc chicken" , 'description' => 'Burger 5 description', 'price' => 9.99]
-
-
-
     ];
         #[Route('/burgers', name: 'burgers')]
         public function home(){
