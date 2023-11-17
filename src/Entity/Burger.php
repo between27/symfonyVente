@@ -19,6 +19,8 @@ class Burger
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Image $image = null;
 
+    #[ORM\OneToOne]
+
     public function getId (): ?int
     {
         return $this->id;
