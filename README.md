@@ -1,1 +1,4 @@
 ## 🦕
+composer install
+
+npm install
