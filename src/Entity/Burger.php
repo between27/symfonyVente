@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AgencesRepository;
+use App\Repository\BurgerRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BurgerRepository::class)]
@@ -30,6 +31,9 @@ class Burger
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Commentaire $commentaire = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $cornichon = null;
 
     public function getId (): ?int
     {
@@ -99,6 +103,18 @@ class Burger
     public function setCommentaire (Commentaire $commentaire): self
     {
         $this->commentaire = $commentaire;
+        return $this;
+    }
+
+    public function getCornichon(): ?string
+    {
+        return $this->cornichon;
+    }
+
+    public function setCornichon(string $cornichon): static
+    {
+        $this->cornichon = $cornichon;
+
         return $this;
     }
 }

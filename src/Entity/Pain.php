@@ -2,7 +2,8 @@
 
 namespace App\Entity;
 
-use App\Repository\AgencesRepository;
+
+use App\Repository\PainRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PainRepository::class)]

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AgencesRepository;
+use App\Repository\SauceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 

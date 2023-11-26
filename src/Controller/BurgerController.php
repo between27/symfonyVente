@@ -3,9 +3,17 @@
 
 namespace App\Controller;
 
+use App\Entity\Burger;
+use App\Entity\Oignon;
+use App\Entity\Pain;
+use App\Entity\Sauce;
+use Doctrine\ORM\EntityManagerInterface;
+use http\Env\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+
+
 
 
 class BurgerController extends AbstractController {
@@ -18,9 +26,9 @@ class BurgerController extends AbstractController {
         ['id' => 'burger_5','name'=>"mc chicken" , 'description' => 'Burger 5 description', 'price' => 9.99]
     ];
         #[Route('/burgers', name: 'burgers')]
-        public function home(){
+        public function home(EntityManagerInterface $entityManager){
             return $this->render('liste_burger.html.twig',['burgers' => $this->burgers,
-                'title' => 'Burgers',]);
+                'title' => 'Burgers']);
 }
 
         #[Route('/burgers/{id}', name: 'burger')]
@@ -31,5 +39,32 @@ class BurgerController extends AbstractController {
                }
            }
         }
+
+    #[Route('/pain', name: 'pain')]
+    public function index(EntityManagerInterface $entityManager): Response
+    {
+        $pains = $entityManager->getRepository(Pain::class)->findAll();
+
+        return $this->render('test1.html.twig', [
+            'pains' => $pains,
+        ]);
+    }
+/*        public function assembleBurger(Request $request): Response {
+
+            $painId = $request->get('pain_id');
+            $oignonId = $request->get('oignon_id');
+            $sauceId = $request->get('sauce_id');
+
+
+            $burger = new Burger();
+
+            $burger->setPain($this->getDoctrine()->getRepository(Pain::class)->find($painId));
+            $burger->setOignon($this->getDoctrine()->getRepository(Oignon::class)->find($oignonId));
+            $burger->setSauce($this->getDoctrine()->getRepository(Sauce::class)->find($sauceId));
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($burger);
+            $entityManager->flush();
+        }*/
 }
 
