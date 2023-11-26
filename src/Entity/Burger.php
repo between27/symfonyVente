@@ -15,17 +15,17 @@ class Burger
  
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
- 
+
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Image $image = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(targetEntity: Pain::class, inversedBy: 'burger')]
     private ?Pain $pain = null;
 
-    #[ORM\ManyToOne(targetEntity: Oignon::class, inversedBy: 'burger')]    
-    private ?Oigon $oignon = null;
+    #[ORM\OneToMany(mappedBy: 'burger', targetEntity: Oignon::class)]
+    private ?Oignon $oignon = null;
     
-    #[ORM\ManyToOne(targetEntity: Sauce::class, inversedBy: 'burger')]
+    #[ORM\OneToMany(mappedBy: 'burger', targetEntity: Sauce::class)]
     private ?Sauce $sauce = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]

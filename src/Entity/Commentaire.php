@@ -24,16 +24,15 @@ class Commentaire
         return $this->id;
     }
 
-    public function getText(): ?string
+    public function getTexte(): ?string
     {
-       return $this->nom;
+       return $this->texte;
     }
 
-    public function setText(string $nom): self
+    public function setTexte(string $texte): self
     {
-       $this->nom = $nom;
+       $this->texte = $texte;
        return $this;
     }
-
     
 }
