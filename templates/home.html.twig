@@ -2,23 +2,23 @@
 
 
 {% block title %}
-{{ title }}
- {% endblock %}
+    {{ title }}
+{% endblock %}
 
 
 
 
 {% block content %}
- <div class="text-right">
-  <a class="text-blue-500 text-xl hover:underline hover:text-blue-700 transition duration-1000" href={{ path('burgers') }}>👉👉 Liste de burgers</a>
- </div>
-<div class="flex items-center justify-center min-h-screen">
- <img class="w-56 transition duration-500 peer hover:scale-105"
-      src="{{ asset('img/logo1.svg') }}" alt="">
-<span id="hello" class="text-9xl font-black text-transparent bg-gradient-to-r from-gray-500 to-gray-900 bg-clip-text
- cursor-grabbing transition duration-500 peer-hover:animate-bounce">
- HELLO WORLD
-</span>
-
+<div class="min-h-screen flex items-center justify-center ">
+    <div class="">
+        <div class="flex items-center">
+            <img class="w-56 transition duration-500 peer hover:scale-105"
+                 src="{{ asset('img/logo1.svg') }}" alt="">
+            <span id="hello" class="text-9xl font-black text-transparent bg-gradient-to-r from-gray-500 to-gray-900 bg-clip-text
+                    cursor-all-scroll transition duration-500 peer-hover:animate-bounce">HELLO WORLD</span>
+        </div>
+    <p class="text-7xl capitalize font-black">et bienvenue sur mon site</p>
+    </div>
 </div>
+    <p>And welcome to my shop</p>
 {% endblock %}

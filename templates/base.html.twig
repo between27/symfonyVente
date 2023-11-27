@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>
-    {% block title %}
-    {% endblock %}
+        {% block title %}
+        {% endblock %}
     </title>
 </head>
 <body class="bg-gray-100">
 <div class="container mx-auto px-2">
-    {% block header %}
-    {% endblock %}
+    <nav class="w-full flex justify-between items-center md:p-2 bg-purple-400/10 rounded-3xl mt-2">
+        <div class="">
+            <img src="{{ asset('img/logo1.svg') }}"
+                 class="w-20 p-3" alt="">
+        </div>
+    </nav>
 
-{% block content %}
-{% endblock %}
+
+    {% block content %}
+    {% endblock %}
 </div>
 
 
