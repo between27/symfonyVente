@@ -14,12 +14,17 @@
     <nav class="w-full flex justify-between items-center md:p-2 bg-purple-400/10 rounded-3xl mt-2">
         <div class="">
             <img src="{{ asset('img/logo1.svg') }}"
-                 class="w-20 p-3" alt="">
+                 class="w-40 p-3" alt="">
+        </div>
+<div class="flex items-center mr-5">
+            <a href="{{ path('home') }}" class="text-purple-700 hover:text-purple-900 text-4xl">Home</a>
+            <a href="{{ path('app_marque') }}" class="ml-5 text-purple-700 hover:text-purple-900 text-4xl">Marque</a>
+
         </div>
     </nav>
 
 
-    {% block content %}
+    {% block body %}
     {% endblock %}
 </div>
 

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChaussureController!{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    {% for chaussure in chaussures %}
+        <div>
+            <p>{{ chaussure.nom }}</p>
+            <ul>
+            {% for taille in chaussure %}
+                <li>{{ taille.collection.taille }}</li>
+            {% endfor %}
+            </ul>
+            <p>{{ chaussure.marque.nom }}</p>
+            <p>{{ chaussure.categorie.categorie }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

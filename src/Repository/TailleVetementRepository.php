@@ -2,27 +2,27 @@
 
 namespace App\Repository;
 
-use App\Entity\Taille;
+use App\Entity\TailleVetement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Taille>
+ * @extends ServiceEntityRepository<TailleVetement>
  *
- * @method Taille|null find($id, $lockMode = null, $lockVersion = null)
- * @method Taille|null findOneBy(array $criteria, array $orderBy = null)
- * @method Taille[]    findAll()
- * @method Taille[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method TailleVetement|null find($id, $lockMode = null, $lockVersion = null)
+ * @method TailleVetement|null findOneBy(array $criteria, array $orderBy = null)
+ * @method TailleVetement[]    findAll()
+ * @method TailleVetement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TailleRepository extends ServiceEntityRepository
+class TailleVetementRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Taille::class);
+        parent::__construct($registry, TailleVetement::class);
     }
 
 //    /**
-//     * @return Taille[] Returns an array of Taille objects
+//     * @return TailleVetement[] Returns an array of TailleVetement objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class TailleRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Taille
+//    public function findOneBySomeField($value): ?TailleVetement
 //    {
 //        return $this->createQueryBuilder('t')
 //            ->andWhere('t.exampleField = :val')
