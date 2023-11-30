@@ -18,6 +18,9 @@ class Chaussure
     #[ORM\Column(length: 200)]
     private ?string $nom = null;
 
+    #[ORM\Column(length: 200)]
+    private ?string $urlImage = null;
+
     #[ORM\ManyToOne(inversedBy: 'chaussures')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Marque $marque = null;
@@ -49,6 +52,18 @@ class Chaussure
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getUrlImage(): ?string
+    {
+        return $this->urlImage;
+    }
+
+    public function setUrlImage(string $urlImage): static
+    {
+        $this->urlImage = $urlImage;
 
         return $this;
     }

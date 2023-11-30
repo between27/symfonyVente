@@ -5,18 +5,61 @@
 {% block body %}
 
 
-<div class="example-wrapper">
-    {% for chaussure in chaussures %}
-        <div>
-            <p>{{ chaussure.nom }}</p>
-            <ul>
-            {% for taille in chaussure %}
-                <li>{{ taille.collection.taille }}</li>
-            {% endfor %}
-            </ul>
-            <p>{{ chaussure.marque.nom }}</p>
-            <p>{{ chaussure.categorie.categorie }}</p>
+    <div>
+        <div class="flex space-x-1 justify-between py-3">
+            <h1 class="text-4xl font-bold">Chaussures ({{ chaussures|length }})</h1>
+            <a href="{{ path('app_chaussure_new') }}"
+               class=" select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none
+                      disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-green-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg
+                      hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                Ajouter une chaussure</a>
         </div>
-    {% endfor %}
-</div>
+        <div class="grid grid-cols-3 gap-2">
+            {% for chaussure in chaussures %}
+                <div class="relative flex flex-col mt-6 text-gray-700 shadow-md bg-clip-border rounded-xl w-96 bg-white">
+                    <div class="relative mb-2.5 h-56 overflow-hidden text-white shadow-lg bg-clip-border rounded-t-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                        <img src="{{ chaussure.urlImage }}" class="" alt="">
+                    </div>
+                    <div class="px-6">
+                        <p class="mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                            <a
+                                    href="{{ path('app_chaussure_show', {'id': chaussure.id}) }}">{{ chaussure.nom }}</a>
+                            | {{ chaussure.marque.nom }} | {{ chaussure.categorie.categorie }} </p>
+                    </div>
+                    <div class="flex px-6">
+                        <p class="  block font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                            Disponible dans les tailles suivantes :</p>
+                        <table class="inline">
+                            <tr>
+                                {% for taille in chaussure.taille %}
+                                    <td class="font-semibold border border-black w-6 text-center">{{ taille.taille }}</td>
+                                {% endfor %}
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="flex justify-end space-x-3 p-5">
+                        <a href="{{ path('app_chaussure_delete', {'id': chaussure.id}) }}"
+                           class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border
+                                  border-red-400 text-red-600 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85]"
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce vêtement ?');">
+                            Supprimer
+                        </a>
+                        <a href="{{ path('app_chaussure_edit', {'id': chaussure.id}) }}"
+                           class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs
+                                  py-3 px-6 rounded-lg bg-blue-600 text-white shadow-md shadow-gray-900/10 hover:shadow-lg
+                                  hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
+                            Modifier
+                        </a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
 {% endblock %}

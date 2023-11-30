@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Modifier le vêtement : {{ vetement.nom }}</h1>
+
+    {{ form_start(form) }}
+    <div>
+        {{ form_label(form.nom) }}
+        {{ form_widget(form.nom) }}
+    </div>
+
+    {{ form_label(form.urlImage) }}
+    {{ form_widget(form.urlImage) }}
+
+    <div class="grid-cols-10 grid w-1/2">
+        {{ form_label(form.taille) }}
+        {% for taille in form.taille %}
+            <div>
+                {{ form_label(taille,'',{'label_attr':{'class': 'text-blue-700'}}) }}
+                {{ form_widget(taille) }}
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ form_widget(form) }}
+    <button type="submit">Modifier</button>
+    {{ form_end(form) }}
+{% endblock %}

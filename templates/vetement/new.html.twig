@@ -3,12 +3,13 @@
 {% endblock %}
 
 
+
 {% block body %}
 
-{{ form_start(form) }}
+    {{ form_start(form) }}
     <div>
-    {{ form_label(form.nom) }}
-    {{ form_widget(form.nom) }}
+        {{ form_label(form.nom) }}
+        {{ form_widget(form.nom) }}
     </div>
 
     {{ form_label(form.urlImage) }}
@@ -17,15 +18,15 @@
     <div class="grid-cols-10 grid w-1/2">
         {{ form_label(form.taille) }}
         {% for taille in form.taille %}
-        <div>
-            {{ form_label(taille,'',{'label_attr':{'class': 'text-blue-700'}}) }}
-            {{ form_widget(taille) }}
-        </div>
+            <div>
+                {{ form_label(taille,'',{'label_attr':{'class': 'text-blue-700'}}) }}
+                {{ form_widget(taille) }}
+            </div>
         {% endfor %}
     </div>
 
     {{ form_widget(form) }}
-<button class="p-3 bg-amber-700 rounded-xl" type="submit">Create</button>
-{{ form_end(form)}}
+    <button class="p-3 bg-amber-700 rounded-xl" type="submit">Create</button>
+    {{ form_end(form)}}
 {% endblock %}
 

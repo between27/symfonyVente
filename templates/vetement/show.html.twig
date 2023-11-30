@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="p-4">
+    <h1 class="text-center text-6xl capitalize py-3">Détails du vêtement</h1>
+    <div class="flex">
+        <div class="w-1/2">
+            <img src="{{ vetement.urlImage }}" alt="{{ vetement.nom }}">
+        </div>
+        <div class="w-1/2 bg-white p-4">
+            <h1 class="text-4xl text-purple-950 uppercase font-bold">{{ vetement.nom }}</h1>
+            <p>Marque : {{ vetement.marque.nom }}</p>
+        </div>
+    </div>
+
+
+        <p>Nom : {{ vetement.nom }}</p>
+        <p>Marque : {{ vetement.marque.nom }}</p>
+        <p>Catégorie : {{ vetement.categorie.categorie }}</p>
+        <ul>
+            {% for taille in vetement.taille %}
+                <li>{{ taille.taille }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+{% endblock %}

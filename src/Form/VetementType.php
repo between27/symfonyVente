@@ -2,22 +2,23 @@
 
 namespace App\Form;
 
-use App\Entity\CategorieChaussure;
-use App\Entity\Chaussure;
+use App\Entity\CategorieVetement;
 use App\Entity\Marque;
-use App\Entity\TailleChaussure;
+use App\Entity\TailleVetement;
+use App\Entity\Vetement;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChaussureType extends AbstractType
+class VetementType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', null, [
-                'label' => 'Nom de la chaussure'
+            ->add('nom', TextType::class, [
+                'label' => 'Nom du vetement'
             ])
             ->add('urlImage', null, [
                 'label' => 'Url de l\'image'
@@ -28,28 +29,24 @@ class ChaussureType extends AbstractType
                 'label' => 'Marque'
             ])
             ->add('categorie', EntityType::class, [
-                'class' => CategorieChaussure::class,
+                'class' => CategorieVetement::class,
                 'choice_label' => 'categorie',
                 'label' => 'Categorie'
             ])
             ->add('taille', EntityType::class, [
-                'class' => TailleChaussure::class,
-                'choice_label' => 'taille',
+                'class' => TailleVetement::class,
                 'label' => 'Taille',
+                'choice_label' => 'taille',
                 'multiple' => true,
                 'expanded' => true,
-                'attr' => [
-                    'class' => ''
-
-                ]
-
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Chaussure::class,
+            'data_class' => Vetement::class,
         ]);
     }
 }

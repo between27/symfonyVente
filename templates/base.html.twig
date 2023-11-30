@@ -9,16 +9,17 @@
         {% endblock %}
     </title>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-200">
 <div class="container mx-auto px-2">
-    <nav class="w-full flex justify-between items-center md:p-2 bg-purple-400/10 rounded-3xl mt-2">
+    <nav class="w-full flex justify-between items-center md:p-2 bg-purple-950/20 rounded-3xl mt-2">
         <div class="">
             <img src="{{ asset('img/logo1.svg') }}"
                  class="w-40 p-3" alt="">
         </div>
-<div class="flex items-center mr-5">
-            <a href="{{ path('home') }}" class="text-purple-700 hover:text-purple-900 text-4xl">Home</a>
-            <a href="{{ path('app_marque') }}" class="ml-5 text-purple-700 hover:text-purple-900 text-4xl">Marque</a>
+<div class="flex items-center mr-5 space-x-5">
+            <a href="{{ path('home') }}" class="text-gray-700 hover:text-gray-900 text-4xl">Home</a>
+            <a href="{{ path('app_vetement') }}" class="text-gray-700 hover:text-gray-900 text-4xl">vetements</a>
+            <a href="{{ path('app_chaussure') }}" class="text-gray-700 hover:text-gray-900 text-4xl">chaussures</a>
 
         </div>
     </nav>
