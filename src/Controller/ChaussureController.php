@@ -26,7 +26,7 @@ class ChaussureController extends AbstractController
     }
 
     #[Route('/chaussure/new', name: 'app_chaussure_new')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, ): Response
     {
         $chaussure = new Chaussure();
         $form = $this->createForm(ChaussureType::class, $chaussure);

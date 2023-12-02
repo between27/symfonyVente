@@ -14,11 +14,11 @@
                       hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none">
                 Ajouter un vetement</a>
         </div>
-        <div class="flex justify-center">
+        <div class="flex justify-start">
             <div class="grid grid-cols-3 gap-2 w-full ">
                 {% for vetement in vetements %}
-                    <div class="relative flex flex-col mt-6 text-gray-700 shadow-md bg-clip-border rounded-xl w-96 bg-white">
-                        <div class="relative mb-2.5 h-56 overflow-hidden text-white shadow-lg bg-clip-border rounded-t-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                    <div class="relative flex flex-col mt-6 text-gray-700 shadow-md bg-clip-border rounded-xl w-96 bg-white hover:shadow-2xl group transition duration-700">
+                        <div class="relative mb-2.5 h-56 overflow-hidden text-white shadow-lg bg-clip-border rounded-t-xl bg-blue-gray-500 shadow-blue-gray-500/40 ">
                             <img src="{{ vetement.urlImage }}" class="w-fit" alt="">
                         </div>
                         <div class="px-6">
@@ -32,6 +32,7 @@
                                 Disponible dans les tailles suivantes :</p>
                             <table class="inline">
                                 <tr>
+
                                     {% for taille in vetement.taille %}
                                         <td class="font-semibold border border-black w-6 text-center">{{ taille.taille }}</td>
                                     {% endfor %}
@@ -42,7 +43,7 @@
                         <div class="flex justify-end space-x-3 p-5">
                             <a href="{{ path('app_vetement_delete', {'id': vetement.id}) }}"
                                class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg border
-                                  border-red-400 text-red-600 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85]"
+                                  border-red-400 text-red-600 hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] group-hover:text-white group-hover:bg-red-600 duration-500"
                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce vêtement ?');">
                                 Supprimer
                             </a>

@@ -21,6 +21,8 @@ class TailleVetement
     #[ORM\ManyToMany(targetEntity: Vetement::class, mappedBy: 'taille')]
     private Collection $vetements;
 
+
+
     public function __construct()
     {
         $this->vetements = new ArrayCollection();
@@ -70,8 +72,6 @@ class TailleVetement
         return $this;
     }
 
-    /**
-     * @return Collection<int, Chaussure>
-     */
+
 
 }

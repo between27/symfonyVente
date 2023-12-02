@@ -12,14 +12,23 @@ class TailleVetementFixtures extends Fixture
     private const TAILLE_REFERENCE = 'TailleVetement';
     public function load(ObjectManager $manager)
     {
-        $listeTailles = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+        $listeTaille = [
+            'XS',
+            'S',
+            'M',
+            'L',
+            'XL',
+            'XXL',
+        ];
 
-        foreach ($listeTailles as $key => $uneTaille) {
+        foreach ($listeTaille as $key => $uneTaille) {
             $taille = new TailleVetement();
             $taille->setTaille($uneTaille);
             $manager->persist($taille);
-            $this->addReference(self::TAILLE_REFERENCE .'_' . $key, $taille);
+            $this->addReference(self::TAILLE_REFERENCE . '_' . $key, $taille);
         }
+
         $manager->flush();
+
     }
 }

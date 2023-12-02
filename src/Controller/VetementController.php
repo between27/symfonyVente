@@ -10,9 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\AppService;
 
 class VetementController extends AbstractController
 {
+
+
+
     #[Route('/vetements', name: 'app_vetement')]
     public function index(VetementRepository $vetement): Response
     {
@@ -26,15 +30,14 @@ class VetementController extends AbstractController
     }
 
     #[Route('/vetement/new', name: 'app_vetement_new')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, AppService $service): Response
     {
         $vetement = new Vetement();
         $form = $this->createForm(VetementType::class, $vetement);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($vetement);
-            $entityManager->flush();
+            $service->save($vetement);
             return $this->redirectToRoute('app_vetement');
         }
 

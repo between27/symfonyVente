@@ -24,7 +24,7 @@
                         <p class="mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                             <a
                                     href="{{ path('app_chaussure_show', {'id': chaussure.id}) }}">{{ chaussure.nom }}</a>
-                            | {{ chaussure.marque.nom }} | {{ chaussure.categorie.categorie }} </p>
+                            | <span class="text-blue-700"> {{ chaussure.marque.nom }} </span> | <span class="text-amber-700"> {{ chaussure.categorie.categorie }} </span> </p>
                     </div>
                     <div class="flex px-6">
                         <p class="  block font-sans text-base antialiased font-light leading-relaxed text-inherit">

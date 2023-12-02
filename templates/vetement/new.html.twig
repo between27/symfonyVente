@@ -15,9 +15,15 @@
     {{ form_label(form.urlImage) }}
     {{ form_widget(form.urlImage) }}
 
+    {{form_label(form.categorie)}}
+    {{form_widget(form.categorie)}}
+
+
+
     <div class="grid-cols-10 grid w-1/2">
         {{ form_label(form.taille) }}
         {% for taille in form.taille %}
+         
             <div>
                 {{ form_label(taille,'',{'label_attr':{'class': 'text-blue-700'}}) }}
                 {{ form_widget(taille) }}

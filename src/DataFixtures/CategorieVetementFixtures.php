@@ -12,7 +12,7 @@ class CategorieVetementFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $listeCategories = ['T-shirt', 'Pantalon', 'Veste', 'Pull', 'Chemise', 'Short', 'Jupe', 'Robe', 'Sous-vêtement'];
+        $listeCategories = ['T-shirt', 'Pantalon', 'Veste', 'Pull', 'Chemise', 'Short', 'Jupe', 'Robe', 'Sous-vêtement', 'chaussure'];
 
         foreach ($listeCategories as $key => $uneCategorie) {
             $categorie = new CategorieVetement();
